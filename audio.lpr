@@ -4,7 +4,7 @@ library audio;
 
 uses
   Classes, laz_acs, acs_stdaudio, acs_wave,acs_converters ,Sysutils,acs_allformats,acs_file,
-  acs_misc,acs_indicator,acs_audio,acs_volumequery;
+  acs_misc,acs_indicator,acs_audio,acs_volumequery,acs_mixer;
 
 
 var
@@ -14,6 +14,7 @@ var
   Input : TAcsAudioIn;
   Indicator : TAcsVolumeQuery;
   NullOutput : TAcsNULLOut;
+  Mixer : TAcsMixer;
 
 procedure CreateClasses;
 begin
@@ -21,6 +22,10 @@ begin
     begin
       Output := TAcsAudioOut.Create(nil);
       Output.Driver:='DirectSound';
+    end;
+  if not Assigned(Mixer) then
+    begin
+      Mixer := TAcsMixer.Create(nil);
     end;
   if not Assigned(FileInput) then
     begin
@@ -98,6 +103,12 @@ begin
         Output.Device:=i;
         Result := True;
       end;
+  for i := 0 to Mixer.DevCount-1 do
+    begin
+      Mixer.DevNum:=i;
+      if Mixer.MixerName = aName then
+        break;
+    end;
 end;
 
 function Start : Boolean;stdcall;
@@ -186,6 +197,33 @@ begin
   end;
 end;
 
+function SetVolume(aVal : Integer) : Boolean;stdcall;
+var
+  aName: String;
+  aVol : TAcsMixerLevel;
+  i: Integer;
+begin
+  CreateClasses;
+  Result := False;
+  for i := 0 to Mixer.ChannelCount-1 do
+    begin
+      aName := Mixer.ChannelName[i];
+      aVol.Main:=aVal;
+      aVol.Left:=aVal;
+      aVol.Right:=aVal;
+      if Mixer.Channel[i] = mcVolume then
+        begin
+          Mixer.Level[i] := aVol;
+          Result := True;
+        end;
+      aVol.Main:=65535;
+      aVol.Left:=aVol.Main;
+      aVol.Right:=aVol.Main;
+      if Mixer.Channel[i] = mcPCM then
+        Mixer.Level[i]:=aVol;
+    end;
+end;
+
 procedure ScriptCleanup;
 begin
   if Assigned(Output) then
@@ -197,6 +235,7 @@ begin
   FreeAndNil(FileInput);
   FreeAndNil(Indicator);
   FreeAndNil(NullOutput);
+  FreeAndNil(Mixer);
 end;
 function ScriptDefinition : PChar;stdcall;
 begin
@@ -213,6 +252,7 @@ begin
        +#10+'function GetRecordVolume : Word;stdcall;'
        +#10+'function GetRecordVolumeDB : Double;stdcall;'
        +#10+'function StopRecording : Boolean;stdcall;'
+       +#10+'function SetVolume(aVal : Integer) : Boolean;stdcall;'
             ;
 end;
 
@@ -230,6 +270,7 @@ exports
   GetRecordVolume,
   GetRecordVolumeDB,
   StopRecording,
+  SetVolume,
 
   ScriptCleanup,
   ScriptDefinition;

@@ -49,7 +49,7 @@
     <Version Value="11"/>
     <PathDelim Value="\"/>
     <Target>
-      <Filename Value="..\paradoxtest1\promet\output\i386-win32\scriptplugins\audio"/>
+      <Filename Value="..\..\..\..\output\i386-win32\scriptplugins\audio"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
