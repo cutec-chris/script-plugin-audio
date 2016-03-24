@@ -72,7 +72,7 @@ begin
   Result := False;
   CreateClasses;
   for i := 0 to Input.DeviceCount-1 do
-    if Input.DeviceInfo[i].DeviceName = aName then
+    if pos(aName,Input.DeviceInfo[i].DeviceName)>0  then
       begin
         Input.Device:=i;
         Result := True;
@@ -98,7 +98,7 @@ begin
   Result := False;
   CreateClasses;
   for i := 0 to Output.DeviceCount-1 do
-    if Output.DeviceInfo[i].DeviceName = aName then
+    if pos(aName,Output.DeviceInfo[i].DeviceName) >0   then
       begin
         Output.Device:=i;
         Result := True;
@@ -106,7 +106,7 @@ begin
   for i := 0 to Mixer.DevCount-1 do
     begin
       Mixer.DevNum:=i;
-      if Mixer.MixerName = aName then
+      if pos(aName,Mixer.MixerName)>0 then
         break;
     end;
 end;
