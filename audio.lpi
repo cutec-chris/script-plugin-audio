@@ -29,13 +29,14 @@
     <RunParams>
       <local>
         <FormatVersion Value="1"/>
-        <HostApplicationFilename Value="C:\Prometheus\TCS\paradoxtest1\promet\output\i386-win32\pscriptedit.exe"/>
+        <HostApplicationFilename Value="C:\Quellen\promet-erp\promet\output\i386-win32\pscriptedit.exe"/>
         <CommandLineParams Value="&quot;--config-path=devel&quot; Test.Audio"/>
       </local>
     </RunParams>
     <RequiredPackages Count="1">
       <Item1>
         <PackageName Value="laz_acs"/>
+        <DefaultFilename Value="components\acs\packages\laz_acs.lpk"/>
       </Item1>
     </RequiredPackages>
     <Units Count="1">

@@ -94,6 +94,7 @@ end;
 function SetOutput(aName : PChar) : Boolean;stdcall;
 var
   i: Integer;
+  s: String;
 begin
   Result := False;
   CreateClasses;
@@ -106,8 +107,21 @@ begin
   for i := 0 to Mixer.DevCount-1 do
     begin
       Mixer.DevNum:=i;
-      if pos(aName,Mixer.MixerName)>0 then
-        break;
+      s := Mixer.MixerName;
+      if (pos('Lautsprecher',s)>0)
+      or (pos('Speaker',s)>0)
+      then
+        begin
+          if pos('(',s)>0 then s := StringReplace(copy(s,pos('(',s)+1,length(s)),')','',[rfReplaceAll]);
+          if length(s)>length(aName) then
+            if pos(aName,s)>0 then
+              break;
+          if length(aName)>length(s) then   //Mixername can be cutt off
+            if copy(aName,0,length(s))=s then
+              break;
+          if aName=s then
+            break;
+        end;
     end;
 end;
 
