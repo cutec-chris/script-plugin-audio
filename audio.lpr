@@ -91,16 +91,49 @@ begin
   Result := PChar(Res);
 end;
 
+function ListMixer : PChar;stdcall;
+var
+  i: Integer;
+  Res: String;
+begin
+  Res := '';
+  CreateClasses;
+  for i := 0 to Mixer.DevCount-1 do
+    begin
+      Mixer.DevNum:=i;
+      Res := Res+Mixer.MixerName+LineEnding;
+    end;
+  Result := PChar(Res);
+end;
+
+function ListMixerChannels : PChar;stdcall;
+var
+  i: Integer;
+  Res: String;
+  aName: String;
+begin
+  Res := '';
+  CreateClasses;
+  for i := 0 to Mixer.ChannelCount-1 do
+    begin
+      aName := Mixer.ChannelName[i];
+      Res := Res+aName+LineEnding;
+    end;
+  Result := PChar(Res);
+end;
+
 function SetOutput(aName : PChar) : Boolean;stdcall;
 var
   i: Integer;
   s: String;
+  bName: String;
 begin
   Result := False;
   CreateClasses;
   for i := 0 to Output.DeviceCount-1 do
     if pos(aName,Output.DeviceInfo[i].DeviceName) >0   then
       begin
+        bName := Output.DeviceInfo[i].DeviceName; //reset aName to real name for Mixer selection
         Output.Device:=i;
         Result := True;
       end;
@@ -113,14 +146,30 @@ begin
       then
         begin
           if pos('(',s)>0 then s := StringReplace(copy(s,pos('(',s)+1,length(s)),')','',[rfReplaceAll]);
-          if length(s)>length(aName) then
-            if pos(aName,s)>0 then
+          if length(s)>length(bName) then
+            if pos(bName,s)>0 then
               break;
-          if length(aName)>length(s) then   //Mixername can be cutt off
-            if copy(aName,0,length(s))=s then
+          if length(bName)>length(s) then   //Mixername can be cutt off
+            if copy(bName,0,length(s))=s then
               break;
-          if aName=s then
+          if bName=s then
             break;
+        end;
+    end;
+end;
+
+function SetMixer(aName : PChar) : Boolean;stdcall;
+var
+  i: Integer;
+begin
+  Result := False;
+  for i := 0 to Mixer.DevCount-1 do
+    begin
+      Mixer.DevNum:=i;
+      if Mixer.MixerName=aName then
+        begin
+          Result := True;
+          break;
         end;
     end;
 end;
@@ -256,7 +305,10 @@ begin
   Result := 'function ListInputs : PChar;stdcall;'
        +#10+'function SetInput(aName : PChar) : Boolean;stdcall;'
        +#10+'function ListOutputs : PChar;stdcall;'
+       +#10+'function ListMixer : PChar;stdcall;'
+       +#10+'function ListMixerChannels : PChar;stdcall;'
        +#10+'function SetOutput(aName : PChar) : Boolean;stdcall;'
+       +#10+'function SetMixer(aName : PChar) : Boolean;stdcall;'
        +#10+'function LoadFile(aFilename : PChar) : Boolean;stdcall;'
        +#10+'function Start : Boolean;stdcall;'
        +#10+'function IsPlaying : Boolean;stdcall;'
@@ -278,6 +330,9 @@ exports
   Stop,
   LoadFile,
   SetOutput,
+  SetMixer,
+  ListMixer,
+  ListMixerChannels,
   SetInput,
   StartRecording,
   IsRecording,
