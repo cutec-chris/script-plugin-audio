@@ -9,9 +9,9 @@
         <Filename Value="audio.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="38"/>
-        <CursorPos X="24" Y="48"/>
-        <UsageCount Value="44"/>
+        <TopLine Value="232"/>
+        <CursorPos Y="253"/>
+        <UsageCount Value="46"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -148,7 +148,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="15"/>
         <CursorPos Y="43"/>
-        <UsageCount Value="16"/>
+        <UsageCount Value="17"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit20>
@@ -214,7 +214,7 @@
         <EditorIndex Value="6"/>
         <TopLine Value="1204"/>
         <CursorPos X="81" Y="1219"/>
-        <UsageCount Value="14"/>
+        <UsageCount Value="15"/>
         <Loaded Value="True"/>
       </Unit29>
       <Unit30>
@@ -229,7 +229,7 @@
         <EditorIndex Value="5"/>
         <TopLine Value="1320"/>
         <CursorPos X="17" Y="1338"/>
-        <UsageCount Value="13"/>
+        <UsageCount Value="14"/>
         <Loaded Value="True"/>
       </Unit31>
       <Unit32>
@@ -243,7 +243,7 @@
         <EditorIndex Value="4"/>
         <TopLine Value="458"/>
         <CursorPos Y="480"/>
-        <UsageCount Value="13"/>
+        <UsageCount Value="14"/>
         <Loaded Value="True"/>
       </Unit33>
       <Unit34>
@@ -251,7 +251,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="194"/>
         <CursorPos Y="222"/>
-        <UsageCount Value="13"/>
+        <UsageCount Value="14"/>
         <Loaded Value="True"/>
       </Unit34>
       <Unit35>
@@ -259,130 +259,130 @@
         <EditorIndex Value="3"/>
         <TopLine Value="7633"/>
         <CursorPos Y="7653"/>
-        <UsageCount Value="13"/>
+        <UsageCount Value="14"/>
         <Loaded Value="True"/>
       </Unit35>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7643" TopLine="7622"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="156" TopLine="134"/>
       </Position1>
       <Position2>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7644" TopLine="7622"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="157" TopLine="134"/>
       </Position2>
       <Position3>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7650" TopLine="7622"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="161" TopLine="134"/>
       </Position3>
       <Position4>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7652" TopLine="7622"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="162" TopLine="134"/>
       </Position4>
       <Position5>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7653" TopLine="7622"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="165" TopLine="134"/>
       </Position5>
       <Position6>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7838" TopLine="7816"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="155" Column="78" TopLine="134"/>
       </Position6>
       <Position7>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7843" TopLine="7822"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="156" TopLine="134"/>
       </Position7>
       <Position8>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7844" TopLine="7822"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="157" TopLine="134"/>
       </Position8>
       <Position9>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7849" TopLine="7822"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="161" TopLine="134"/>
       </Position9>
       <Position10>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7643" TopLine="7621"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="156" TopLine="134"/>
       </Position10>
       <Position11>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7644" TopLine="7621"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="157" TopLine="134"/>
       </Position11>
       <Position12>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7650" TopLine="7621"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="158" TopLine="134"/>
       </Position12>
       <Position13>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7652" TopLine="7621"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="161" TopLine="134"/>
       </Position13>
       <Position14>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7653" TopLine="7621"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="162" TopLine="134"/>
       </Position14>
       <Position15>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7656" TopLine="7630"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="163" TopLine="134"/>
       </Position15>
       <Position16>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7658" TopLine="7630"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="165" TopLine="134"/>
       </Position16>
       <Position17>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7674" TopLine="7652"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="168" TopLine="134"/>
       </Position17>
       <Position18>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7684" TopLine="7667"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="153" TopLine="134"/>
       </Position18>
       <Position19>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7701" TopLine="7667"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="154" TopLine="134"/>
       </Position19>
       <Position20>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7643" TopLine="7633"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="156" TopLine="134"/>
       </Position20>
       <Position21>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7644" TopLine="7633"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="157" TopLine="134"/>
       </Position21>
       <Position22>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7650" TopLine="7633"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="158" TopLine="134"/>
       </Position22>
       <Position23>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7652" TopLine="7633"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="153" TopLine="134"/>
       </Position23>
       <Position24>
-        <Filename Value="..\..\..\components\pascalscript\Source\uPSRuntime.pas"/>
-        <Caret Line="7653" TopLine="7633"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="154" TopLine="134"/>
       </Position24>
       <Position25>
         <Filename Value="audio.lpr"/>
-        <Caret Line="120" TopLine="97"/>
+        <Caret Line="156" TopLine="134"/>
       </Position25>
       <Position26>
-        <Filename Value="components\acs\src\devices\win32\acs_audio.inc"/>
-        <Caret Line="359" Column="46" TopLine="338"/>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="157" TopLine="134"/>
       </Position26>
       <Position27>
         <Filename Value="audio.lpr"/>
-        <Caret Line="135" Column="97" TopLine="123"/>
+        <Caret Line="161" TopLine="134"/>
       </Position27>
       <Position28>
         <Filename Value="audio.lpr"/>
-        <Caret Line="340" Column="13" TopLine="310"/>
+        <Caret Line="162" TopLine="134"/>
       </Position28>
       <Position29>
         <Filename Value="audio.lpr"/>
-        <Caret Line="235" Column="28" TopLine="197"/>
+        <Caret Line="165" TopLine="134"/>
       </Position29>
       <Position30>
         <Filename Value="audio.lpr"/>
-        <Caret Line="345" Column="10" TopLine="320"/>
+        <Caret Line="168" TopLine="134"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>
