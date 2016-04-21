@@ -91,6 +91,17 @@ begin
   Result := PChar(Res);
 end;
 
+function GetOutputName : PChar;stdcall;
+var
+  i: Integer;
+  Res: String;
+begin
+  Res := '';
+  CreateClasses;
+  Res := Output.DeviceInfo[Output.Device].DeviceName;
+  Result := PChar(Res);
+end;
+
 function ListMixer : PChar;stdcall;
 var
   i: Integer;
@@ -140,6 +151,8 @@ begin
   for i := 0 to Mixer.DevCount-1 do
     begin
       Mixer.DevNum:=i;
+      if pos('(',bName)>0 then
+        bName := copy(bName,pos('(',bName)+1,length(bName)-(pos('(',bName)+1));
       s := Mixer.MixerName;
       if (pos('Lautsprecher',s)>0)
       or (pos('Speaker',s)>0)
@@ -161,6 +174,8 @@ end;
 function SetMixer(aName : PChar) : Boolean;stdcall;
 var
   i: Integer;
+  aVol : TAcsMixerLevel;
+  a: Integer;
 begin
   Result := False;
   for i := 0 to Mixer.DevCount-1 do
@@ -169,6 +184,14 @@ begin
       if Mixer.MixerName=aName then
         begin
           Result := True;
+          for a := 0 to Mixer.ChannelCount-1 do
+            begin
+              aVol.Main:=255;
+              aVol.Left:=aVol.Main;
+              aVol.Right:=aVol.Main;
+              if Mixer.Channel[a] = mcPCM then
+                Mixer.Level[a]:=aVol;
+            end;
           break;
         end;
     end;
@@ -295,11 +318,6 @@ begin
           Mixer.Level[i] := aVol;
           Result := True;
         end;
-      aVol.Main:=65535;
-      aVol.Left:=aVol.Main;
-      aVol.Right:=aVol.Main;
-      if Mixer.Channel[i] = mcPCM then
-        Mixer.Level[i]:=aVol;
     end;
 end;
 
@@ -321,6 +339,7 @@ begin
   Result := 'function ListInputs : PChar;stdcall;'
        +#10+'function SetInput(aName : PChar) : Boolean;stdcall;'
        +#10+'function ListOutputs : PChar;stdcall;'
+       +#10+'function GetOutputName : PChar;stdcall;'
        +#10+'function ListMixer : PChar;stdcall;'
        +#10+'function ListMixerChannels : PChar;stdcall;'
        +#10+'function SetOutput(aName : PChar) : Boolean;stdcall;'
@@ -342,6 +361,7 @@ end;
 exports
   ListInputs,
   ListOutputs,
+  GetOutputName,
   Start,
   IsPlaying,
   Stop,
