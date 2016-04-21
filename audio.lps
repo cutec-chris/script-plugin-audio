@@ -9,8 +9,8 @@
         <Filename Value="audio.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="119"/>
-        <CursorPos X="15" Y="155"/>
+        <TopLine Value="208"/>
+        <CursorPos X="7" Y="231"/>
         <UsageCount Value="42"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -263,7 +263,7 @@
         <Loaded Value="True"/>
       </Unit35>
     </Units>
-    <JumpHistory Count="28" HistoryIndex="27">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="..\..\..\components\pascalscript\Source\uPSR_dll.pas"/>
         <Caret Line="222" TopLine="194"/>
@@ -376,6 +376,14 @@
         <Filename Value="audio.lpr"/>
         <Caret Line="135" Column="97" TopLine="123"/>
       </Position28>
+      <Position29>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="340" Column="13" TopLine="310"/>
+      </Position29>
+      <Position30>
+        <Filename Value="audio.lpr"/>
+        <Caret Line="235" Column="28" TopLine="197"/>
+      </Position30>
     </JumpHistory>
   </ProjectSession>
   <Debugging>

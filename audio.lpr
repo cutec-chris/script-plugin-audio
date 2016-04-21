@@ -221,6 +221,22 @@ begin
   Result := round((Indicator.volLeft+Indicator.volRight)/2);
 end;
 
+function GetExactRecordVolume(Time : Integer;Measurements : Integer) : Word;stdcall;
+var
+  aTime : Integer;
+  Val : real;
+  i: Integer;
+begin
+  aTime := Time div Measurements;
+  for i := 0 to Measurements-1 do
+    begin
+      Val := Val+(Indicator.volLeft+Indicator.volRight)/2;
+      sleep(aTime);
+    end;
+  Val := Val / Measurements;
+  Result := round(Val);
+end;
+
 function StopRecording : Boolean;stdcall;
 begin
   Result := True;
@@ -316,6 +332,7 @@ begin
        +#10+'function StartRecording : Boolean;stdcall;'
        +#10+'function IsRecording : Boolean;stdcall;'
        +#10+'function GetRecordVolume : Word;stdcall;'
+       +#10+'function GetExactRecordVolume(Time : Integer;Measurements : Integer) : Word;stdcall;'
        +#10+'function GetRecordVolumeDB : Double;stdcall;'
        +#10+'function StopRecording : Boolean;stdcall;'
        +#10+'function SetVolume(aVal : Integer) : Boolean;stdcall;'
@@ -337,6 +354,7 @@ exports
   StartRecording,
   IsRecording,
   GetRecordVolume,
+  GetExactRecordVolume,
   GetRecordVolumeDB,
   StopRecording,
   SetVolume,
