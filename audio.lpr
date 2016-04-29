@@ -15,6 +15,7 @@ var
   Indicator : TAcsVolumeQuery;
   NullOutput : TAcsNULLOut;
   Mixer : TAcsMixer;
+  MixerIn : TAcsMixer;
 
 procedure CreateClasses;
 begin
@@ -190,6 +191,11 @@ begin
               aVol.Left:=aVol.Main;
               aVol.Right:=aVol.Main;
               if Mixer.Channel[a] = mcPCM then
+                Mixer.Level[a]:=aVol;
+              aVol.Main:=128;
+              aVol.Left:=aVol.Main;
+              aVol.Right:=aVol.Main;
+              if Mixer.Channel[a] = mcMic then
                 Mixer.Level[a]:=aVol;
             end;
           break;

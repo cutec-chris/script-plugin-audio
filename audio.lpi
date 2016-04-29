@@ -50,7 +50,7 @@
     <Version Value="11"/>
     <PathDelim Value="\"/>
     <Target>
-      <Filename Value="..\..\..\..\output\i386-win32\scriptplugins\audio"/>
+      <Filename Value="..\..\..\..\output\$(TargetCPU)-$(TargetOS)\scriptplugins\audio"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
