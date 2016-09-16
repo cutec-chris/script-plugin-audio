@@ -182,7 +182,7 @@ begin
   for i := 0 to Mixer.DevCount-1 do
     begin
       Mixer.DevNum:=i;
-      if Mixer.MixerName=aName then
+      if pos(aName,Mixer.MixerName)>0 then
         begin
           Result := True;
           for a := 0 to Mixer.ChannelCount-1 do
