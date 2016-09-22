@@ -16,6 +16,7 @@ var
   NullOutput : TAcsNULLOut;
   Mixer : TAcsMixer;
   MixerIn : TAcsMixer;
+  SelectedMixer : Integer = -1;
 
 procedure CreateClasses;
 begin
@@ -50,6 +51,7 @@ begin
       NullOutput.Input := Indicator;
       //NullOutput.Input := Input;
       NullOutput.BufferSize:=$10;
+      NullOutput.Delay:=0;
       //NullOutput.FileName:='c:\tmp.wav';
     end;
 end;
@@ -184,6 +186,7 @@ begin
       Mixer.DevNum:=i;
       if pos(aName,Mixer.MixerName)>0 then
         begin
+          SelectedMixer:=i;
           Result := True;
           for a := 0 to Mixer.ChannelCount-1 do
             begin
@@ -313,6 +316,7 @@ var
 begin
   CreateClasses;
   Result := False;
+  Mixer.DevNum:=SelectedMixer;
   for i := 0 to Mixer.ChannelCount-1 do
     begin
       aName := Mixer.ChannelName[i];
