@@ -313,6 +313,7 @@ var
   aName: String;
   aVol : TAcsMixerLevel;
   i: Integer;
+  aType: TAcsMixerChannel;
 begin
   CreateClasses;
   Result := False;
@@ -323,7 +324,8 @@ begin
       aVol.Main:=aVal;
       aVol.Left:=aVal;
       aVol.Right:=aVal;
-      if Mixer.Channel[i] = mcVolume then
+      aType := Mixer.Channel[i];
+      if (aType = mcVolume) or (aType = mcMic) then
         begin
           Mixer.Level[i] := aVol;
           Result := True;
