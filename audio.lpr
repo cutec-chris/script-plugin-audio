@@ -25,10 +25,9 @@ begin
       Output := TAcsAudioOut.Create(nil);
       Output.Driver:='DirectSound';
     end;
-  if not Assigned(Mixer) then
-    begin
-      Mixer := TAcsMixer.Create(nil);
-    end;
+  if Assigned(Mixer) then
+    Mixer.Free;
+  Mixer := TAcsMixer.Create(nil);
   if not Assigned(FileInput) then
     begin
       FileInput := TAcsFileIn.Create(nil);
@@ -115,7 +114,8 @@ begin
   for i := 0 to Mixer.DevCount-1 do
     begin
       Mixer.DevNum:=i;
-      Res := Res+Mixer.MixerName+LineEnding;
+      if Mixer.ChannelCount>0 then
+        Res := Res+Mixer.MixerName+LineEnding;
     end;
   Result := PChar(Res);
 end;
