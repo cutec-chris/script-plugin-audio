@@ -23,11 +23,12 @@ begin
   if not Assigned(Output) then
     begin
       Output := TAcsAudioOut.Create(nil);
-      Output.Driver:='DirectSound';
+      Output.DriverName:='DirectSound';
     end;
-  if Assigned(Mixer) then
-    Mixer.Free;
-  Mixer := TAcsMixer.Create(nil);
+  if not Assigned(Mixer) then
+    Mixer := TAcsMixer.Create(nil);
+  if Mixer.DevCount>0 then
+    Mixer.DevNum:=0;
   if not Assigned(FileInput) then
     begin
       FileInput := TAcsFileIn.Create(nil);
@@ -37,7 +38,7 @@ begin
   if not Assigned(Input) then
     begin
       Input := TAcsAudioIn.Create(nil);
-      Input.Driver:='Wavemapper';
+      Input.DriverName:='Wavemapper';
     end;
   if not Assigned(Indicator) then
     begin
@@ -317,6 +318,7 @@ var
 begin
   CreateClasses;
   Result := False;
+  if SelectedMixer = -1 then exit;
   Mixer.DevNum:=SelectedMixer;
   for i := 0 to Mixer.ChannelCount-1 do
     begin
@@ -331,6 +333,27 @@ begin
           Result := True;
         end;
     end;
+end;
+function GetMixerSettings : PChar;stdcall;
+var
+  i: Integer;
+  Res: String;
+  aName: String;
+begin
+  Res := '';
+  CreateClasses;
+  Res := Res+'Channels:'+LineEnding;
+  for i := 0 to Mixer.ChannelCount-1 do
+    begin
+      aName := Mixer.ChannelName[i];
+      Res := Res+aName+LineEnding;
+    end;
+  Res := Res+'Controls:'+LineEnding;
+  for i := 0 to Mixer.ControlCount-1 do
+    begin
+      Res := Res+Mixer.Control[i].CName+' ('+IntToStr(Mixer.Control[i].CMin)+'-'+IntToStr(Mixer.Control[i].Cmax)+')'+LineEnding;
+    end;
+  Result := PChar(Res);
 end;
 
 procedure ScriptCleanup;
@@ -367,6 +390,7 @@ begin
        +#10+'function GetRecordVolumeDB : Double;stdcall;'
        +#10+'function StopRecording : Boolean;stdcall;'
        +#10+'function SetVolume(aVal : Integer) : Boolean;stdcall;'
+       +#10+'function GetMixerSettings : PChar;stdcall;'
             ;
 end;
 
@@ -390,6 +414,7 @@ exports
   GetRecordVolumeDB,
   StopRecording,
   SetVolume,
+  GetMixerSettings,
 
   ScriptCleanup,
   ScriptDefinition;
