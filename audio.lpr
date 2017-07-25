@@ -342,6 +342,8 @@ var
 begin
   Res := '';
   CreateClasses;
+  if SelectedMixer = -1 then exit;
+  Mixer.DevNum:=SelectedMixer;
   Res := Res+'Channels:'+LineEnding;
   for i := 0 to Mixer.ChannelCount-1 do
     begin
